@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../notifiers/state_notifier.dart';
-import '../providers/multi_state_change_provider.dart';
+import '../inheriteds/multi_state_change_inherited_provider.dart';
 
 class CreateMultiStateChangeProvider extends StatefulWidget {
   final Map<Type, StateNotifier Function()> providers;
@@ -36,7 +36,7 @@ class _CreateMultiStateChangeProviderState extends State<CreateMultiStateChangeP
 
   @override
   Widget build(BuildContext context) {
-    return MultiStateChangeProvider(
+    return MultiStateChangeInheritedProvider(
       providers: _providers,
       child: widget.child,
     );

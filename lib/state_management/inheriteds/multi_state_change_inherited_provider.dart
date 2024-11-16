@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MultiStateChangeProvider extends InheritedWidget {
+class MultiStateChangeInheritedProvider extends InheritedWidget {
   final Map<Type, dynamic> providers;
 
-  const MultiStateChangeProvider({
+  const MultiStateChangeInheritedProvider({
     super.key,
     required this.providers,
     required super.child,
@@ -12,7 +12,7 @@ class MultiStateChangeProvider extends InheritedWidget {
   T? get<T>() => providers[T] as T?;
 
   @override
-  bool updateShouldNotify(covariant MultiStateChangeProvider oldWidget) {
+  bool updateShouldNotify(covariant MultiStateChangeInheritedProvider oldWidget) {
     return providers != oldWidget.providers;
   }
 }

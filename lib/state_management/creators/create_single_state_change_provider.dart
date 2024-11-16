@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 
 import '../notifiers/state_notifier.dart';
-import '../providers/state_change_provider.dart';
+import '../inheriteds/single_state_change_inherited_provider.dart';
 
-class CreateStateChangeProvider<T extends StateNotifier> extends StatefulWidget {
+class CreateSingleStateChangeProvider<T extends StateNotifier> extends StatefulWidget {
   final T Function() create;
   final Widget child;
 
-  const CreateStateChangeProvider({
+  const CreateSingleStateChangeProvider({
     super.key,
     required this.create,
     required this.child,
   });
 
   @override
-  State<CreateStateChangeProvider<T>> createState() => _CreateStateChangeProviderState<T>();
+  State<CreateSingleStateChangeProvider<T>> createState() => _CreateSingleStateChangeProviderState<T>();
 }
 
-class _CreateStateChangeProviderState<T extends StateNotifier> extends State<CreateStateChangeProvider<T>> {
+class _CreateSingleStateChangeProviderState<T extends StateNotifier> extends State<CreateSingleStateChangeProvider<T>> {
   late T _value;
 
   @override
@@ -34,7 +34,7 @@ class _CreateStateChangeProviderState<T extends StateNotifier> extends State<Cre
 
   @override
   Widget build(BuildContext context) {
-    return StateChangeProvider<T>(
+    return SingleChangeProvider<T>(
       value: _value,
       child: widget.child,
     );
